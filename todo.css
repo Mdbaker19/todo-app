@@ -40,13 +40,19 @@ button{
 #input{
     height: 30%;
     padding: 0 10%;
-    margin-top: 2%;
+    display: flex;
+    max-width: 920px;
+    margin: 0 auto;
 }
 #todoInput{
     background-color: rgb(37 40 60);
+    color: rgb(251 242 255);
     width: 100%;
     height: 100%;
     border: none;
+}
+#add{
+    color: rgb(85 86 113);
 }
 
 #list{
@@ -58,6 +64,7 @@ button{
 }
 #listArea{
     width: 80%;
+    max-width: 700px;
     height: 85%;
     overflow: scroll;
     overflow-x: hidden;
@@ -87,6 +94,7 @@ button{
 #listStatus{
     display: flex;
     width: 80%;
+    max-width: 700px;
     justify-content: space-around;
     background-color: rgb(37 40 60);
     margin-top: 5%;
@@ -104,6 +112,7 @@ button{
     background-color: rgb(37 40 60);
     color: rgb(85 86 113);
     width: 80%;
+    max-width: 700px;
     margin: auto;
     height: 5%;
     display: flex;

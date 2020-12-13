@@ -1,6 +1,6 @@
-function Todo(todoItem, status){
+function Todo(todoItem){
     this.todo = todoItem;
-    this.completed = status;
+    this.completed = false;
 
     this.finish = function (){
         this.completed = true;

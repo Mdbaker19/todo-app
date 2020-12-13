@@ -46,8 +46,17 @@ $(document).ready(function (){
 
 
 
-    function renderTodo(){
-
+    function renderTodo(obj){
+        return `<div class="listItem">
+                    <button class="finishTodo">O</button>
+                    <p class="todoName text">obj.todo</p>
+                    <button class="delete">X</button>
+                </div>`
     }
+
+    $("#add").on("click", function (){
+       let todo = new Todo($("#todoInput").val());
+        renderTodo(todo);
+    });
 
 });
