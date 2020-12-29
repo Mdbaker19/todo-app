@@ -18,7 +18,7 @@
             <button id="dark"><i class="fas fa-moon"></i></button>
         </div>
         <div id="input">
-            <input id="todoInput" placeholder="Create a new todo...">
+            <input id="todoInput" placeholder="Create a new todo..." onfocus="this.value=''">
             <button id="add">Add</button>
         </div>
     </div>
@@ -26,62 +26,16 @@
     <div id="list">
         <div id="listArea">
             <div class="listItem">
-                <button class="finishTodo">O</button>
+                <button class="finishTodo listButton">[  ]</button>
                 <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
-            </div>
-
-            <div class="listItem">
-                <button class="finishTodo">O</button>
-                <p class="todoName text">Do This for this long</p>
-                <button class="delete">X</button>
+                <button class="delete listButton">Delete</button>
+                <p id="hiddenId">0</p>
             </div>
 
         </div>
         <div id="listStatus">
-            <h5 id="itemsLeft" class="text"><span class="text" id="count"></span> items left</h5>
-            <button id="clearComplete">Clear Completed</button>
+            <h5 id="itemsLeft" class="text status"><span class="text" id="count"></span> items left</h5>
+            <button id="clearComplete" class="status">Clear Completed</button>
         </div>
     </div>
 

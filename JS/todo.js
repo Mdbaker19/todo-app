@@ -1,8 +1,12 @@
 $(document).ready(function (){
 
-    let count = 0;
+    let listArea = document.getElementById("listArea");
     const darkMode = $("#dark");
     const lightMode = $("#light");
+    let count = 0;
+    let todoID = listArea.children.length;
+    $("#count").text(todoID);
+    const body = $("body");
 
     lightMode.on("click", function (){
         darkLightMode();
@@ -14,7 +18,7 @@ $(document).ready(function (){
     function darkLightMode(){
         count++;
         if(count % 2 === 1) {
-            $("body").css({
+            body.css({
                 "backgroundColor": "rgb(247 246 249)",
                 "color": "rgb(85 86 113)"
             });
@@ -28,7 +32,7 @@ $(document).ready(function (){
             lightMode.hide();
             darkMode.show();
         } else {
-            $("body").css({
+            body.css({
                 "backgroundColor": "rgb(22 23 34)",
                 "color": "rgb(251 242 255)"
             });
@@ -44,19 +48,35 @@ $(document).ready(function (){
         }
     }
 
-
+    body.on("click", ".finishTodo", function (){
+       $(this).css("color", "rgb(250 241 255)");
+       $(this).text("[x]");
+    });
 
     function renderTodo(obj){
         return `<div class="listItem">
-                    <button class="finishTodo">O</button>
-                    <p class="todoName text">obj.todo</p>
-                    <button class="delete">X</button>
+                    <button class="finishTodo listButton">[ ]</button>
+                    <p class="todoName text">${obj.todo}</p>
+                    <button class="delete listButton">Delete</button>
+                    <p id="hiddenId">${obj.id}</p>
                 </div>`
     }
 
     $("#add").on("click", function (){
-       let todo = new Todo($("#todoInput").val());
-        renderTodo(todo);
+        let text = $("#todoInput");
+        if(text.val().length > 0){
+            let todo = new Todo(text.val(), todoID);
+            todoID++;
+            listArea.insertAdjacentHTML("afterbegin", renderTodo(todo));
+            text.val("");
+            $("#count").text(todoID);
+        }
+    });
+
+    body.on("click", ".delete", function (){
+       $(this).parent().remove();
+       todoID--;
+       $("#count").text(todoID);
     });
 
 });
